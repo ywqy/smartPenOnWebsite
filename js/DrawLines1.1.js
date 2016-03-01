@@ -13,8 +13,16 @@ var plotTotal = document.getElementById("Array");
 
 var button=document.getElementById("draw");
 
+var EventUtil = {
+    getEvent:function(event){
+        return (event ? event : window.event);
+    }
+};
+
+
 function Line(color,thick,path){
     this.color=color;
+    this.thick=thick;
     if(path==null){
         this.pathDuringX=[];
         this.pathDuringY=[];
@@ -26,7 +34,7 @@ function Line(color,thick,path){
         this.pathDuringY=path[1];
         this.pathDuringTimes=path[2];
     }
-    this.thick=thick;
+
 }
 Line.prototype={
     getAllDataString:function(){
@@ -38,7 +46,7 @@ Line.prototype={
 
         return string;
     },
-    addPath:function(){
+    addPath:function(canvas,event){
         var screenWidth = window.screen.width;
         var screenHeight = window.screen.height;
 
@@ -110,12 +118,14 @@ Lines.prototype={
 };
 var lines=new Lines();
 var line=new Line("rgb(100,100,100)",2,null);
-var movFuc=function(){
-    line.addPath(canvas);
+var movFuc=function(event){
+    line.addPath(canvas,EventUtil.getEvent(event));
     line.drawLine(ctx);
 
 };
 button.onclick=function(){
+    var jsonText = JSON.stringify(lines,null,4);
+    //alert(jsonText);
     lines.drawLinesAuto();
 };
 window.addEventListener("mousedown",function(){

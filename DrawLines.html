@@ -2,17 +2,25 @@
 <html>
 <head>
     <title>CanvasAnimation</title>
-    <!--<script src="js/modernizr-custom.js"></script>-->
+    <script src="js/modernizr-custom.js"></script>
 
 </head>
 <body>
-    <p id="WHT">0,0,0</p>
+    <!--<p id="WHT">0,0,0</p>-->
     <canvas id="canvas" width="571" height="646" ></canvas>
     <canvas id="canvasDraw" width="571" height="646"></canvas>
     <div>
-        <button id="draw" onclick="a()">draw</button>
+        <button id="draw" onclick="a()">Redraw path</button>
+        <br>
+        <button id="drawAll" >Show all path</button>
+        <br>
+        <!--Alpha For drawAll:<input type="range" id="alpha"-->
+            <!--min="0.0" max="1.0" step="0.01" value="1.0">-->
+        <!--<br>-->
+        <!--drawSpeed:<input type="range" id="drawSpeed"-->
+            <!--min=".5" max="10" step="0.1" value="1.0">-->
     </div>
-    <p id="Array">abc</p>
-    <script src="js/DrawLines1.1.js"></script>
+    <!--<p id="Array">abc</p>-->
+    <script src="js/DrawLines1.2.js"></script>
 </body>
 </html>
